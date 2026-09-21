@@ -23,7 +23,7 @@ All facts were verified against primary sources on the dates stated. Vendor capa
 | 7 Control plane | ◐ | ◐ | ◐ | ● | ○ |
 | 8 Governance | ◐ | ● | ◐ | ● | ○ |
 | **Grades last verified** | 2026-09-11 | 2026-09-11 | 2026-09-11 | 2026-09-11 | 2026-09-11 |
-| **Memory erasure docs re-checked** | 2026-09-21 | 2026-09-21 | 2026-09-21 (primary page would not load) | 2026-09-21 | not checked |
+| **Memory erasure docs re-checked** | 2026-09-21 | 2026-09-21 | unresolved (tutorial silent; primary page failed to load, 2026-09-21) | 2026-09-21 | not checked |
 
 > **The Google column is the lowest-confidence assessment in this map.** Google has been renaming its agent products and recent documentation refers to an "Agent Platform SDK." Verify current naming, the native evaluation offering, and Memory Bank residency guarantees before citing any of it.
 
