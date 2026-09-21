@@ -67,7 +67,7 @@ flowchart TD
 
 **Scoping a project.** Go to [`docs/business-case-diagnostic.md`](docs/business-case-diagnostic.md). Five questions, an archetype grid, and an autonomy ladder. The short version: never climb above the autonomy rung your verifier can support.
 
-**A note on freshness.** Vendor facts in this space decay in months. Everything here was verified against primary sources between 2026-09-11 and 2026-09-16, and dates are stated where they matter. Every hedge in this repo is deliberate — where a vendor's own claim is unaudited, or a feature is preview rather than GA, or a capability could not be confirmed against primary documentation, it says so. Re-verify anything you are about to put in front of a client or a board.
+**A note on freshness.** Vendor facts in this space decay in months. Everything here was verified against primary sources between 2026-09-01 and 2026-09-21, and dates are stated where they matter. Every hedge in this repo is deliberate — where a vendor's own claim is unaudited, or a feature is preview rather than GA, or a capability could not be confirmed against primary documentation, it says so. Re-verify anything you are about to put in front of a client or a board.
 
 ---
 

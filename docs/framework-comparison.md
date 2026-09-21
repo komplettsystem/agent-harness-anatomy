@@ -22,7 +22,8 @@ All facts were verified against primary sources on the dates stated. Vendor capa
 | 6 Execution environment | ● | ● | ◐ | ● | ◐ |
 | 7 Control plane | ◐ | ◐ | ◐ | ● | ○ |
 | 8 Governance | ◐ | ● | ◐ | ● | ○ |
-| **Last verified** | 2026-09-11 | 2026-09-11 | 2026-09-11 | 2026-09-11 | 2026-09-11 |
+| **Grades last verified** | 2026-09-11 | 2026-09-11 | 2026-09-11 | 2026-09-11 | 2026-09-11 |
+| **Memory erasure docs re-checked** | 2026-09-21 | 2026-09-21 | 2026-09-21 (primary page would not load) | 2026-09-21 | not checked |
 
 > **The Google column is the lowest-confidence assessment in this map.** Google has been renaming its agent products and recent documentation refers to an "Agent Platform SDK." Verify current naming, the native evaluation offering, and Memory Bank residency guarantees before citing any of it.
 
@@ -63,7 +64,7 @@ These entries address a defined subset of layers. The column states which layers
 
 **Built for** teams optimising for agent *quality* over portability and residency — organisations that have decided their differentiation is how good the agent gets at a repeating process, and are willing to accept a single-model dependency to get the strongest available memory-plus-verification bundle. It is the best-argued answer in the market to "how does this agent get better," and that is a real reason to choose it.
 
-**Weakest at: governance and residency, which is the exact axis on which it is most likely to be blocked.** It is Claude-only, so there is no model neutrality. Residency was reported as US infrastructure only, but **that is third-party reporting from May 2026 and must be re-verified** — do not carry it into a client conversation unchecked. The deeper unresolved question is erasure: whether redaction reaches memories that dreaming has already consolidated was not established in the sources I checked. Permission composition for out-of-band curation is also explicitly left to the builder: the stated approach is that you select which transcripts feed a dreaming job, mirroring your agents' permissions yourself, which becomes an access-control design problem at any real headcount. Dreaming remains a research preview.
+**Weakest at: governance and residency, which is the exact axis on which it is most likely to be blocked.** It is Claude-only, so there is no model neutrality. Residency was reported as US infrastructure only, but **that is third-party reporting from May 2026 and must be re-verified** — do not carry it into a client conversation unchecked. The deeper question is erasure across the dreaming boundary: `memories.delete` and `memory_versions.redact` work within a store, but dreams write to a separate output store, so erasing a memory in the source store does not reach a dream output that already absorbed it (Anthropic's memory and dreams docs, read 2026-09-21). Permission composition for out-of-band curation is also explicitly left to the builder: the stated approach is that you select which transcripts feed a dreaming job, mirroring your agents' permissions yourself, which becomes an access-control design problem at any real headcount. Dreaming remains a research preview.
 
 ### AWS AgentCore (Amazon Bedrock AgentCore)
 
@@ -183,4 +184,4 @@ Three observations I would defend.
 
 **Distribution is an underrated axis.** The hardest part of an internal agent deployment is usually not capability but adoption, and publishing into software people already have open is worth more than a feature. Only one platform in this comparison has that.
 
-**The layers with no managed answer are the ones worth owning.** Context (Layer 3) is mostly implicit inside every runtime, verification (Layer 5) is being absorbed into platforms rather than offered neutrally, and integration into systems of record (Layer 2) is where the real cost sits and where nobody can do the work for you. That's not an accident: those three layers are where your proprietary knowledge actually lives, which is exactly why no vendor can sell it to you.
+**The layers with no managed answer are the ones worth owning.** Context (Layer 3) is mostly implicit inside every runtime, verification (Layer 5) is bundled into the platforms that lead on it, though neutral products such as Braintrust exist, and integration into systems of record (Layer 2) is where the real cost sits and where nobody can do the work for you. That's not an accident: those three layers are where your proprietary knowledge actually lives, which is exactly why no vendor can sell it to you.

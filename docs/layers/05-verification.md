@@ -53,7 +53,7 @@ Two things can go wrong with it. It detects *recurring* failure, which is not th
 
 **AWS AgentCore is graded partial here, and that is its notable gap** relative to how complete the rest of its stack is: check what evaluation tooling ships natively before assuming it is covered. **Google Vertex Agent Engine is also partial**, and its native evaluation offering is one of the three things I would verify first about that platform. **The OpenAI Agents SDK provides nothing on this layer** — it is a library, and verification is left entirely to you.
 
-One open question I have not found a good answer to: does anyone offer verification as a standalone, runtime-neutral product, or is it being absorbed into every platform as a lock-in mechanism? The current evidence points to absorption, which is a strategic problem for anyone who wants to keep their agent definitions portable.
+**Standalone, runtime-neutral.** Verification is not only sold inside agent platforms. Braintrust is a hosted evaluation and observability product that works across model providers: datasets and scorers (exact match, custom code, LLM-as-judge) run separately from the task, and its trace and eval features cover whole agent runs, tool calls included. The data plane can be self-hosted while the control plane stays hosted. I checked Braintrust against its own site and docs on 2026-09-21; its pricing tiers are not verified. Galileo, Arize Phoenix, MLflow and DeepEval make similar runtime-neutral claims, and I have not checked them. So the platforms that lead on this layer bundle it, but the bundle is not the only route, and a neutral product is one way to keep agent definitions portable.
 
 ## The business-case question
 
