@@ -7,11 +7,11 @@ I kept running into the same problem when reading about agent platforms: every v
 The argument, compressed:
 
 1. Every agent system is built from the same eight layers. Vendors differ in which ones they bundle.
-2. The **loop** (model calls a tool, observes the result, repeats) is a commodity. Coding harnesses perfected it first, because code comes with free verifiers: tests, compilers, linters.
+2. The **loop** (model calls a tool, observes the result, repeats) is a commodity. Coding harnesses perfected it first because code is cheap to check: after every step, software can tell the agent within seconds and for free whether the code it just wrote works, without a person having to look ([Layer 5](docs/layers/05-verification.md) explains why most business work lacks this).
 3. Differentiation has moved up the stack to **memory**, **verification**, and **governance**. That is where every major platform shipped in 2026, and it is where lock-in forms.
 4. An agent improves only as far as its **feedback signal** allows. Memory without a verifier compounds errors exactly as fast as it compounds skill.
 5. For any business case the design work is the same: find the verifier, set the autonomy level it can support, own the layers that hold your proprietary knowledge, rent the rest.
-6. The line between **agent autonomy and harness** keeps moving. Agents decide *what* to remember and do; once a primitive proves itself, the harness codifies *how* it happens — versioning, concurrency, permissions, deterministically. Knowing which side of that line a concern belongs on is most of harness design.
+6. The line between **agent autonomy and harness** keeps moving. Agents decide *what* to remember and do; once a primitive proves itself, the harness codifies *how* it happens — versioning, concurrency, permissions, deterministically. Knowing which side of that line a concern belongs on is most of harness design. The line also moves the other way: every harness component encodes an assumption about what the current model cannot do, so retest each component when the model changes and remove the ones that have gone stale ([Anthropic](https://www.anthropic.com/engineering/harness-design-long-running-apps) stopped restarting its agent with a fresh working memory partway through long tasks once Opus 4.5 no longer needed it).
 
 I apply this map to my own tooling work, and I publish it because the build-vs-buy conversation it enables is one most teams are currently having badly.
 
@@ -67,7 +67,7 @@ flowchart TD
 
 **Scoping a project.** Go to [`docs/business-case-diagnostic.md`](docs/business-case-diagnostic.md). Five questions, an archetype grid, and an autonomy ladder. The short version: never climb above the autonomy rung your verifier can support.
 
-**A note on freshness.** Vendor facts in this space decay in months. Everything here was verified against primary sources between 2026-09-01 and 2026-09-21, and dates are stated where they matter. Every hedge in this repo is deliberate — where a vendor's own claim is unaudited, or a feature is preview rather than GA, or a capability could not be confirmed against primary documentation, it says so. Re-verify anything you are about to put in front of a client or a board.
+**A note on freshness.** Vendor facts in this space decay in months. Everything here was verified against primary sources between 2026-09-01 and 2026-09-21; additions made on 2026-10-06 and 2026-10-07 were checked against the sources they cite. Dates are stated where they matter. Every hedge in this repo is deliberate — where a vendor's own claim is unaudited, or a feature is preview rather than GA, or a capability could not be confirmed against primary documentation, it says so. Re-verify anything you are about to put in front of a client or a board.
 
 ---
 

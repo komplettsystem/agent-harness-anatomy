@@ -31,6 +31,8 @@ Misclassification here is what makes an agent burn an entire context window loop
 
 **Checkpointing inside a run.** Typed state written at step boundaries, so a run resumes after an interruption and can be replayed for debugging. This is the single-run version of what [Layer 7](07-control-plane.md) does with durable execution across runs. Without it, every crash costs the whole run — which matters little for a 20-second task and a great deal for a 40-minute one.
 
+**Stopping is not succeeding.** A run can end because the task is verifiably done, a policy blocked it, a budget ran out, a human is needed, or someone cancelled it. The harness should record these as different end states. A loop that ended on its turn limit has proven nothing about the task, and if every ending is logged as one generic "done", [Layer 5](05-verification.md) cannot tell a timeout from a success. Each budget (turns, time, cost, tool calls) is a decision someone made about what the task is worth.
+
 ## The landscape
 
 **Open source.**
