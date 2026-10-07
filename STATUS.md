@@ -1,5 +1,5 @@
 # Agent Harness Anatomy — Status
-_Last updated: 2026-09-21 · Project state: **published, maintained on demand**_
+_Last updated: 2026-10-07 · Project state: **published, maintained on demand**_
 
 Current state only; history is in the git log.
 
@@ -7,7 +7,7 @@ Current state only; history is in the git log.
 
 | What | Now |
 |---|---|
-| Published | Eight layer briefs, a comparison of eleven products and protocols, and a business-case diagnostic. CC BY 4.0. Facts verified against primary sources 2026-09-01 to 2026-09-21 |
+| Published | Eight layer briefs, a comparison of eleven products and protocols, and a business-case diagnostic. CC BY 4.0. Facts verified against primary sources 2026-09-01 to 2026-09-21; additions to Layers 1, 2, 5, 7 and 8 and theses 2 and 6 checked against their sources 2026-10-06/07 |
 | Source of the facts | A private research log holds the evidence and the open questions; this repo is the public write-up |
 | Unresolved | Whether Google Vertex Memory Bank's erasure reaches consolidated memory records (its own governance tutorial does not say) |
 
