@@ -33,6 +33,10 @@ Misclassification here is what makes an agent burn an entire context window loop
 
 **Stopping is not succeeding.** A run can end because the task is verifiably done, a policy blocked it, a budget ran out, a human is needed, or someone cancelled it. The harness should record these as different end states. A loop that ended on its turn limit has proven nothing about the task, and if every ending is logged as one generic "done", [Layer 5](05-verification.md) cannot tell a timeout from a success. Each budget (turns, time, cost, tool calls) is a decision someone made about what the task is worth.
 
+**Routing tasks to models.** The loop decides which model each call goes to. Models from different providers are good at different things and differ widely in price, so that choice is a design decision, not a default. It can be made in three places. A gateway in front of the providers picks by rules such as cost, latency, or fallback when a provider is down; LiteLLM (self-hosted, over 100 providers behind one API) and OpenRouter (hosted) are the common ones. A learned router predicts the cheapest model that is good enough for each request; the best-known open one, RouteLLM, reported costs cut "by over 2 times in certain cases" on standard benchmarks, but its repository has had no commit since August 2024. Or the loop delegates by role: a strong model plans and a cheaper one executes (Claude Code's `opusplan` setting uses Opus in plan mode and Sonnet for execution), subagents each get their own model, or a main model consults a stronger advisor model. A June 2026 preprint tested on coding tasks, Agent-as-a-Router (arXiv 2606.22902), finds that static routers lack information about how models actually perform and break down on unfamiliar tasks. It makes routing a loop of its own, with a verifier and a memory of which model did well on which kind of task. The results are the authors' own.
+
+What routing is worth depends on how the deployment pays for models. With per-token billing it lowers the bill directly. On a flat subscription the invoice stays the same, but routing can still matter for how far the plan's usage limits go, and for putting each task on the model that handles it best. Before either, settle which providers may see the client's data at all ([Layer 8](08-governance.md)); every provider added to the routing table is one more.
+
 ## The landscape
 
 **Open source.**
@@ -48,4 +52,4 @@ Misclassification here is what makes an agent burn an entire context window loop
 
 ## The business-case question
 
-**None worth billing for.** Confirm the loop is model-agnostic, or that switching is cheap, and move on. Every hour spent comparing loops is an hour not spent on Layers 2, 4, 5 and 8, which is where your project will actually succeed or fail.
+**None worth billing for, with one exception.** Decide whether tasks get routed to different models; the answer follows from how the client pays for and is limited on model use, and which providers are allowed to see their data. Beyond that, confirm the loop is model-agnostic, or that switching is cheap, and move on. Every hour spent comparing loops is an hour not spent on Layers 2, 4, 5 and 8, which is where your project will actually succeed or fail.
